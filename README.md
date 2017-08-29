@@ -6,6 +6,9 @@ A simple command line and gulp plugin that lets you parse your code and extract 
 
 The idea is to parse code files to retrieve the translation keys and create a catalog. You can use the command line or run in the background with Gulp while coding. It removes the pain of maintaining your translation catalog.
 
+## Fork
+This is a fork to get the defaultValue. We modified the regex to get defaultValue instead of context
+
 ## Features
 
 - Parses a single file or a directory (recursively or not)

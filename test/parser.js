@@ -480,11 +480,11 @@ describe('parser', function () {
         i18nextParser.end(fakeFile);
     });
 
-    it('parses context passed as object', function (done) {
+    it('parses defaultValue passed as object', function (done) {
         var result;
         var i18nextParser = Parser();
         var fakeFile = new File({
-            contents: new Buffer('t("first", {context: \'date\'}) t("second", { "hello": "world", "context": \'form2\', "foo": "bar"}) t(`third`, { \'context\' : `context` }) t("fourth", { "context" : "pipo"})')
+            contents: new Buffer('t("first", {defaultValue: \'date\'}) t("second", { "hello": "world", "defaultValue": \'form2\', "foo": "bar"}) t(`third`, { \'defaultValue\' : `defaultValue` }) t("fourth", { "defaultValue" : "pipo"})')
         });
 
         i18nextParser.on('data', function (file) {
@@ -493,7 +493,7 @@ describe('parser', function () {
             }
         });
         i18nextParser.on('end', function (file) {
-            assert.deepEqual( result, { first_date: '', second_form2: '', third_context: '', fourth_pipo: '' } );
+            assert.deepEqual( result, { first: 'date', second: 'form2', third: 'defaultValue', fourth: 'pipo' } );
             done();
         });
         i18nextParser.end(fakeFile);
