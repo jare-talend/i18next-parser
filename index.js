@@ -115,7 +115,6 @@ Parser.prototype._transform = function(file, encoding, done) {
         var key = matches[1] || matches[2] || matches[3];
         if (key) {
             var defaultValue = matches[4] || matches[5] || matches[6] || '';
-            console.log(defaultValue);
             keys.push( {
               key,
               value: defaultValue,
